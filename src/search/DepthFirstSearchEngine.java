@@ -15,7 +15,9 @@ public class DepthFirstSearchEngine extends AbstractSearchEngine {
 	
     public DepthFirstSearchEngine(Maze maze) {
         super(maze);
+        long startTimeMs = System.currentTimeMillis( );
         iterateSearch(startLoc, 1);
+        System.out.println("DFS time: " + (System.currentTimeMillis() - startTimeMs));
     }
 
     private void iterateSearch(Dimension loc, int depth) {

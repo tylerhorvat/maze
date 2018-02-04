@@ -14,7 +14,9 @@ import java.awt.Dimension;
 public class BreadthFirstSearchEngine extends AbstractSearchEngine {
     public BreadthFirstSearchEngine(Maze maze) {
         super(maze); //calling the constructor method in the superclass AbstractSearchEngine
+        long startTimeMs = System.currentTimeMillis( );
         doSearchOn2DGrid();
+        System.out.println("BFS time: " + (System.currentTimeMillis() - startTimeMs));
     }
 
     private void doSearchOn2DGrid() {

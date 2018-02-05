@@ -9,7 +9,8 @@ package search;
 
 public class MyMazes {
     static boolean DEBUG = false; 
-    public static void main(String[] args) {
+    @SuppressWarnings("unused")
+	public static void main(String[] args) {
     	Maze maze = new Maze(10, 10); 
         DepthFirstSearchEngine searchE1 = new DepthFirstSearchEngine(new Maze(maze));
         MazeView view1 = new MazeView(searchE1); ;

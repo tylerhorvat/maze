@@ -9,6 +9,7 @@ import javax.swing.DebugGraphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class MazeView extends JFrame {
 	    JPanel jPanel1 = new JPanel();
 	    AbstractSearchEngine currentSearchEngine = null; 

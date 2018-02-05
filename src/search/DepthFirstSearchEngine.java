@@ -32,6 +32,7 @@ public class DepthFirstSearchEngine extends AbstractSearchEngine {
             		System.out.println("Found the goal at " + moves[i].width +
                                    ", " + moves[i].height);
                 isSearching = false;
+                dfsSuccess = true;
                 maxDepth = depth;
                 return;
             } else {

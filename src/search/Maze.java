@@ -70,7 +70,7 @@ public class Maze {
     public Maze(Maze maze){
     	this(maze.getWidth(), maze.getHeight());
 
-        int max_obsticles = (width * height) / 3;
+        //int max_obsticles = (width * height) / 3;
         for (int i=1; i<width+2; i++) {
             for (int j=1; j<height+2; j++) {
                 this.maze[i][j] = maze.getValue(i-1, j-1);

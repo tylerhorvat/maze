@@ -29,6 +29,7 @@ public class AbstractSearchEngine {
     protected int maxDepth;
     protected Dimension startLoc, goalLoc, currentLoc;
     protected boolean isSearching = true;
+    protected static boolean dfsSuccess = false;
 
     protected void initSearch() {
         if (searchPath == null) {

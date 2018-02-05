@@ -1,3 +1,9 @@
+/* Class: IterativeDeepeningSearch.java
+ * Implements a iterative deepening search algorithm
+ * on a maze.
+ * Written by: Tyler Horvat
+ */
+
 package search;
 import java.awt.Dimension;
 
@@ -9,7 +15,6 @@ public class IterativeDeepeningSearchEngine extends AbstractSearchEngine {
 		long startTimeMs = System.currentTimeMillis( );
 		iterativeDeepeningSearch();
         System.out.println("IDS time: " + (System.currentTimeMillis() - startTimeMs));
-		// TODO Auto-generated constructor stub
 	}
 
 	
@@ -18,26 +23,28 @@ public class IterativeDeepeningSearchEngine extends AbstractSearchEngine {
 	
 	public void iterativeDeepeningSearch() {
 		
-		for (int depth = 0; depth < Integer.MAX_VALUE; depth++) {
-			System.out.println("Depth: " + depth);
-			Dimension result = depthLimitedSearch(startLoc, depth);
-			
-			if (result.equals(failure)) {
-				System.out.println("Not found");
-				return;
+		if(dfsSuccess) {
+			for (int depth = 0; depth < Integer.MAX_VALUE; depth++) {
+				//System.out.println("Depth: " + depth);
+				Dimension result = depthLimitedSearch(startLoc, depth);
+				
+				if (result.equals(failure)) {
+					//System.out.println("Not found");
+					return;
+				}
+				if(!result.equals(cutoff)) {
+					//System.out.println("Found at depth " + depth);
+					maxDepth = depth;
+					Dimension[] path = this.getPath(); 
+			            for (int i = 1; i < (path.length); i ++){
+			                int x = path[i].width; 
+			                int y = path[i].height; 
+			                maze.setValue(x, y, (short)(path.length - i + 1)); 
+			            }
+					return;
+				}
 			}
-			if(!result.equals(cutoff)) {
-				System.out.println("Found at depth " + depth);
-				maxDepth = depth;
-				 Dimension[] path = this.getPath(); 
-		            for (int i = 1; i < (path.length); i ++){
-		            	int x = path[i].width; 
-		            	int y = path[i].height; 
-		            	maze.setValue(x, y, (short)(path.length - i + 1)); 
-		            }
-				return;
-			}
-		}
+		}	
 	}
 
 	public Dimension depthLimitedSearch(Dimension current, int limit) {
